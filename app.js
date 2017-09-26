@@ -66,7 +66,7 @@ var seaTac = {
     for(var i in this.cookieSoldArray){
       this.sumCookieSold = (this.sumCookieSold + this.cookieSoldArray[i]);
     };
-    var pikeUl = document.getElementById('pike');
+    var pikeUl = document.getElementById('seaTac');
     var liEl = document.createElement('p');
     liEl.textContent = 'Total: ' + this.sumCookieSold;
     pikeUl.appendChild(liEl);
@@ -75,6 +75,7 @@ var seaTac = {
 
 seaTac.randrate();
 seaTac.hourlyRateCombine();
+seaTac.sumRate();
 
 var sCenter = {
   minCustomers: 11,
@@ -102,7 +103,7 @@ var sCenter = {
     for(var i in this.cookieSoldArray){
       this.sumCookieSold = (this.sumCookieSold + this.cookieSoldArray[i]);
     };
-    var pikeUl = document.getElementById('pike');
+    var pikeUl = document.getElementById('sCenter');
     var liEl = document.createElement('p');
     liEl.textContent = 'Total: ' + this.sumCookieSold;
     pikeUl.appendChild(liEl);
@@ -111,6 +112,7 @@ var sCenter = {
 
 sCenter.randrate();
 sCenter.hourlyRateCombine();
+sCenter.sumRate();
 
 var capHill = {
   minCustomers: 20,
@@ -133,10 +135,21 @@ var capHill = {
       capHillUl.appendChild(liEl);
     }
   },
+
+  sumRate: function(){
+    for(var i in this.cookieSoldArray){
+      this.sumCookieSold = (this.sumCookieSold + this.cookieSoldArray[i]);
+    };
+    var pikeUl = document.getElementById('capHill');
+    var liEl = document.createElement('p');
+    liEl.textContent = 'Total: ' + this.sumCookieSold;
+    pikeUl.appendChild(liEl);
+  },
 };
 
 capHill.randrate();
 capHill.hourlyRateCombine();
+capHill.sumRate();
 
 var alki = {
   minCustomers: 2,
@@ -164,7 +177,7 @@ var alki = {
     for(var i in this.cookieSoldArray){
       this.sumCookieSold = (this.sumCookieSold + this.cookieSoldArray[i]);
     };
-    var pikeUl = document.getElementById('pike');
+    var pikeUl = document.getElementById('alki');
     var liEl = document.createElement('p');
     liEl.textContent = 'Total: ' + this.sumCookieSold;
     pikeUl.appendChild(liEl);
@@ -173,3 +186,4 @@ var alki = {
 
 alki.randrate();
 alki.hourlyRateCombine();
+alki.sumRate();
