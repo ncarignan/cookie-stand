@@ -2,6 +2,7 @@
 
 var standArray = [];
 var totalHourArray = [];
+var hours = ['6:am', '7:0am'];
 
 function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.name = name;
@@ -16,6 +17,7 @@ function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   standArray.push(this);
   this.randRate();
   this.hourlyRateTable();
+  this.makeHeaderRow();
 }
 
 
@@ -41,11 +43,38 @@ CookieStand.prototype.hourlyRateTable = function(){
   }
 };
 
+
+CookieStand.prototype.makeHeaderRow = function(){
+  var standsTable = document.getElementById('standsTable');
+  var trEl = document.createElement('tr');
+  standsTable.appendChild(trEl);
+  // console.log(standsTable);
+  // console.log(thEl , 'is theEl line 61');
+  var thEl = document.createElement('th');
+
+  for(var l = 0; l < this.hours.length; l++){
+    // if(l == -1){
+    //   trEl.appendChild(thEl);
+    //   console.log(trEl);
+    // }else{
+    // console.log(standArray[0].hours[l]);
+    var thing = this.hours[l];
+    thEl.textContent = 'hello world ' + thing;
+    console.log(thEl , 'line68');
+    trEl.appendChild(thEl);
+    // console.log(trEl);
+  }
+  // console.log('hi');
+  // thEl.textContent = ;
+  // trEl.appendChild(this.thEl);
+  // };
+};
 new CookieStand('pike', 23, 65, 6.3);
 new CookieStand('seaTac', 3, 24, 1.2);
 new CookieStand('sCenter', 11, 38, 3.7 );
 new CookieStand('capHill', 20, 38, 2.3);
 new CookieStand('alki', 2, 16, 4.6);
+// makeHeaderRow();
 
 var sumColumns = function(){
   for(var j in standArray[0].cookieSoldArray){
@@ -79,12 +108,6 @@ sumColumns();
 //   catTable.appendChild(trEl);
 //   trEl.appendChild(tdEl);
 //
-//   function makeHeaderRow() {
-//   var trEl = document.createElement('tr');
-//   var thEl = document.createElement('th');
-//   thEl.textContent = 'tail Size';
-//   trEl.appendChild(this.thEl);
-
 //
 // var pike = {
 //   minCustomers: 23,
