@@ -6,13 +6,22 @@ html{
 }
 h1{
   text-align: center;
-  max-width: 1040px;
+  max-width: 475px;
   font-size: 350%;
+  margin:auto;
   margin-top: 30px;
+  /*background-color: #2a2b26;
+  border: solid black 8px;
+  color: #cac9c7;
+  font-family: 'Roboto-Mono', monospace;*/
+}
+nav{
   background-color: #2a2b26;
   border: solid black 8px;
   color: #cac9c7;
   font-family: 'Roboto-Mono', monospace;
+  margin-bottom: 10px;
+  max-width: 1040px;
 }
 h3{
   min-height: 55px;
@@ -25,22 +34,26 @@ h3{
 p{
   font-size: 65%;
   text-align: left;
+  font-family: serif;
 
 
 }
 
 ul{
-  margin: 8px 5px 12px 0
+  margin: 8px 5px 12px 0;
 }
 
 li {
   font-size: 65%;
+  font-family: sans-serif;
 }
 img{
   background-color: #2a2b26;
   border-radius: 10px;
   max-width: 1040px;
   border: solid black 8px;
+  margin: auto;
+
 }
 .cookieList {
     float: left;
@@ -56,6 +69,26 @@ img{
     background-color: #2a2b26;
     color: #cac9c7;
   }
+.nav {
+  display:inline-block;
+  font-size: 120%;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Roboto-Mono', monospace;
+  width: 100px
+}
+a:link{
+  color:#cac9c7;
+  text-decoration:none;
+
+}
+
+#navBlock{
+  margin:auto;
+  /*border: solid white 50px;*/
+  width:475px
+}
+
 #salmonImg{
   width:100%;
   margin: auto;
