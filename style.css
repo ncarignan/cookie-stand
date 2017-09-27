@@ -2,7 +2,7 @@ html{
   background-color: #aa5835;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1350px;
+  max-width: 1000px;
 }
 h1{
   text-align: center;
@@ -10,11 +10,7 @@ h1{
   font-size: 350%;
   margin:auto;
   margin-top: 30px;
-  /*background-color: #2a2b26;
-  border: solid black 8px;
-  color: #cac9c7;
-  font-family: 'Roboto-Mono', monospace;*/
-}
+  }
 nav{
   background-color: #2a2b26;
   border: solid black 8px;
@@ -35,8 +31,6 @@ p{
   font-size: 65%;
   text-align: left;
   font-family: serif;
-
-
 }
 
 ul{
@@ -50,9 +44,10 @@ li {
 img{
   background-color: #2a2b26;
   border-radius: 10px;
-  max-width: 1040px;
+  max-width: 1000px;
   border: solid black 8px;
   margin: auto;
+  box-sizing: border-box;
 }
 #standsTable, td, th{
   border: solid black 2px;
@@ -83,7 +78,36 @@ tr:hover{
   background-color:black;
   /*color: white;*/
 }
-
+legend {
+  background-color: #2a2b26;
+  border: 3px solid black;
+  border-radius: 15px;
+  color: #aa5835;
+  padding: 10px 20px;
+  font-size: 130%;
+  font-weight: bold;
+}
+form {
+  max-width:1000px;
+  box-sizing: border-box;
+  margin:0 auto 20px auto;
+}
+fieldset {
+  max-width:980px;
+  background-color:#2a2b26;
+  color:#cac9c7;
+  box-sizing: border-box;
+  border: solid black 5px;
+}
+input{
+  color: black;
+  padding: 5px;
+  font-weight: bold;
+  background-color: #aa5835;
+}
+table{
+  width:100%;
+}
 .cookieList {
     float: left;
     margin: 10px 0 10px 10px;
@@ -111,7 +135,9 @@ a:link{
   text-decoration:none;
 
 }
-
+#storeForm{
+width:1000px;
+}
 #navBlock{
   margin:auto;
   /*border: solid white 50px;*/
