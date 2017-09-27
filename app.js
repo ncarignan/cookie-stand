@@ -45,8 +45,8 @@ CookieStand.prototype.hourlyRateTable = function(){
   }
 };
 
-var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
 var makeHeaderRow = function(){
+  var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
   var standsTable = document.getElementById('standsTable');
   var trEl = document.createElement('tr');
   for(var i = 0; i < hoursLocal.length; i++){

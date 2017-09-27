@@ -63,7 +63,7 @@ img{
   color: #cac9c7;
 }
 #tableScroll{
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 #standsTable{
   margin-top: 20px;
