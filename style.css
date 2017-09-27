@@ -31,8 +31,6 @@ p{
   font-size: 65%;
   text-align: left;
   font-family: serif;
-
-
 }
 
 ul{
@@ -81,14 +79,31 @@ tr:hover{
   /*color: white;*/
 }
 legend {
-  background-color: black;
-  border: 1px solid #dcdcdc;
-  border-radius: 10px;
-color: #aa5835;
+  background-color: #2a2b26;
+  border: 3px solid black;
+  border-radius: 15px;
+  color: #aa5835;
   padding: 10px 20px;
-  text-align: left;
-  text-transform: uppercase;
+  font-size: 130%;
   font-weight: bold;
+}
+form {
+  max-width:1000px;
+  box-sizing: border-box;
+  margin:0 auto 20px auto;
+}
+fieldset {
+  max-width:980px;
+  background-color:#2a2b26;
+  color:#cac9c7;
+  box-sizing: border-box;
+  border: solid black 5px;
+}
+input{
+  color: black;
+  padding: 5px;
+  font-weight: bold;
+  background-color: #aa5835;
 }
 table{
   width:100%;
