@@ -2,7 +2,6 @@
 
 var standArray = [];
 var totalHourArray = [];
-var hours = ['6:am', '7:0am'];
 
 function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.name = name;
@@ -13,6 +12,7 @@ function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.closeTime = 21;
   this.hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
   this.cookieSoldArray = [];
+  this.cookieSoldTable = [];
   this.sumCookieSold = 0;
   standArray.push(this);
   this.randRate();
@@ -36,29 +36,32 @@ CookieStand.prototype.hourlyRateTable = function(){
   this.standsTable = document.getElementById('standsTable');
   this.trEl = document.createElement('tr');
   this.standsTable.appendChild(this.trEl);
-  for(var i = 0; i < (this.closeTime - this.openTime + 1); i++){
+  this.cookieSoldArray.unshift(this.name);
+  console.log(this.cookieSoldArray);
+
+  for(var i = 0; i < (this.cookieSoldArray.length); i++){
     this.tdEl = document.createElement('td');
     this.tdEl.textContent = this.cookieSoldArray[i];
     this.trEl.appendChild(this.tdEl);
   }
 };
 
-var hoursLocal = [8,9,10,11,12,1,2,3,4,5,6,7];
+var hoursLocal = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var makeHeaderRow = function(){
   var standsTable = document.getElementById('standsTable');
   var trEl = document.createElement('tr');
   // console.log(standsTable);
   // console.log(thEl , 'is theEl line 61');
-  for(var i = 0; i < hoursLocal.length; i++){
+  for(var i = -1; i < hoursLocal.length; i++){
     var thEl = document.createElement('th');
     // if(l == -1){
     // trEl.appendChild(thEl);
     //   console.log(trEl);
     // }else{
     // console.log(standArray[0].hours[l]);
-    console.log(i);
+    // console.log(i);
     thEl.textContent = hoursLocal[i];
-    console.log(thEl);
+    // console.log(thEl);
     trEl.appendChild(thEl);
     // console.log(trEl);
   };
@@ -80,7 +83,7 @@ new CookieStand('alki', 2, 16, 4.6);
 // makeHeaderRow();
 
 var sumColumns = function(){
-  for(var j in standArray[0].cookieSoldArray){
+  for(var j = 0; j < standArray[0].cookieSoldArray.length; j++){
     var hourTotal = 0;
     for(var k in standArray){
       hourTotal = hourTotal + standArray[k].cookieSoldArray[j];
@@ -95,11 +98,14 @@ var sumColumns = function(){
   for (var i in totalHourArray){
     var tdEl = document.createElement('td');
     // console.log(tdEl);
-    tdEl.textContent = totalHourArray[i];
+    if(i == 0){
+      tdEl.textContent = 'Total';
+    }else{
+      tdEl.textContent = totalHourArray[i];
+    };
     trEl.appendChild(tdEl);
-  }
+  };
 };
-
 sumColumns();
 
 // Cat.prototype.render = function(){

@@ -53,8 +53,19 @@ img{
   max-width: 1040px;
   border: solid black 8px;
   margin: auto;
+}
+#standsTable{
+  border: solid black 10px;
+  font-size: 150%;
+}
+td {
+  border: solid black 2px;
+}
+th{
+  border: solid black 2px;
 
 }
+
 .cookieList {
     float: left;
     margin: 10px 0 10px 10px;
