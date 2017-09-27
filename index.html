@@ -25,16 +25,16 @@
     <legend>Add new store location</legend>
 
     <label for="name">Location: </label>
-    <input name="name" type="text"/>
+    <input name="name" type="text" required/>
 
     <label for="minCustomers">Minimum Customers: </label>
-    <input name="minCustomers" type="text"/>
+    <input name="minCustomers" type="number"/>
 
     <label for="maxCustomers">Maximum Customers: </label>
-    <input name="maxCustomers" type="text"/>
+    <input name="maxCustomers" type="number" required/>
 
     <label for="aveCookies">Average Cookies per Person: </label>
-    <input name="aveCookies" type="text"/>
+    <input name="aveCookies" type="number" required/>
 
     <button type="submit">Open new Business!</button>
 </fieldset>
