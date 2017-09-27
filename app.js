@@ -45,11 +45,11 @@ CookieStand.prototype.hourlyRateTable = function(){
   }
 };
 
-var hoursLocal = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
+var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
 var makeHeaderRow = function(){
   var standsTable = document.getElementById('standsTable');
   var trEl = document.createElement('tr');
-  for(var i = -1; i < hoursLocal.length; i++){
+  for(var i = 0; i < hoursLocal.length; i++){
     var thEl = document.createElement('th');
     thEl.textContent = hoursLocal[i];
     trEl.appendChild(thEl);
@@ -59,11 +59,11 @@ var makeHeaderRow = function(){
 
 makeHeaderRow();
 
-new CookieStand('pike', 23, 65, 6.3);
-new CookieStand('seaTac', 3, 24, 1.2);
-new CookieStand('sCenter', 11, 38, 3.7 );
-new CookieStand('capHill', 20, 38, 2.3);
-new CookieStand('alki', 2, 16, 4.6);
+new CookieStand('Pike', 23, 65, 6.3);
+new CookieStand('SeaTac', 3, 24, 1.2);
+new CookieStand('Seattle Center', 11, 38, 3.7 );
+new CookieStand('Capitol Hill', 20, 38, 2.3);
+new CookieStand('Alki', 2, 16, 4.6);
 // makeHeaderRow();
 
 var sumColumns = function(){

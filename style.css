@@ -54,16 +54,34 @@ img{
   border: solid black 8px;
   margin: auto;
 }
+#standsTable, td, th{
+  border: solid black 2px;
+  /*font-size:100;*/
+  margin: 0;
+  border-collapse: collapse;
+  padding: 7px;
+  color: #cac9c7;
+}
+#tableScroll{
+  overflow-x: scroll;
+}
 #standsTable{
-  border: solid black 10px;
-  font-size: 150%;
+  margin-top: 20px;
+  background-color: #2a2b26;
+
 }
 td {
   border: solid black 2px;
+  margin:0;
+  width: auto;
 }
 th{
   border: solid black 2px;
-
+  margin:0;
+}
+tr:hover{
+  background-color:black;
+  /*color: white;*/
 }
 
 .cookieList {
