@@ -1,8 +1,13 @@
 'use strict';
 
+//global Variables
 var standArray = [];
 var totalHourArray = [];
+var storeForm = document.getElementById('storeForm');
+var standsTable = document.getElementById('standsTable');
 
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.name = name;
   this.minCustomers = minCustomers;
@@ -32,9 +37,8 @@ CookieStand.prototype.randRate = function(){
 };
 
 CookieStand.prototype.hourlyRateTable = function(){
-  this.standsTable = document.getElementById('standsTable');
   this.trEl = document.createElement('tr');
-  this.standsTable.appendChild(this.trEl);
+  standsTable.appendChild(this.trEl);
   this.cookieSoldArray.unshift(this.name);
   console.log(this.cookieSoldArray);
 
@@ -47,7 +51,6 @@ CookieStand.prototype.hourlyRateTable = function(){
 
 var makeHeaderRow = function(){
   var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
-  var standsTable = document.getElementById('standsTable');
   var trEl = document.createElement('tr');
   for(var i = 0; i < hoursLocal.length; i++){
     var thEl = document.createElement('th');
@@ -64,8 +67,35 @@ new CookieStand('SeaTac', 3, 24, 1.2);
 new CookieStand('Seattle Center', 11, 38, 3.7 );
 new CookieStand('Capitol Hill', 20, 38, 2.3);
 new CookieStand('Alki', 2, 16, 4.6);
-// makeHeaderRow();
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//new Location function
+//function to re-render table
+
+function handleLocationSubmit(event) {
+  event.preventDefault();
+
+  // form validation
+
+  var name = event.target.name.value;
+  var minCustomers = parseInt(event.target.minCustomers.value);
+  var maxCustomers = parseInt(event.target.maxCustomers.value);
+  var aveCookies = parseInt(event.target.aveCookies.value);
+
+  var newCookieStand = new CookieStand(name,minCustomers,maxCustomers, aveCookies);
+
+  event.target.name.value = null;
+  event.target.minCustomers.value = null;
+  event.target.maxCustomers.value = null;
+  event.target.aveCookies.value = null;
+  standArray.push(newCookieStand);
+  //render table
+}
+
+storeForm.addEventListener('submit', handleLocationSubmit);
+
+
+//end table construction adds
 var sumColumns = function(){
   for(var j = 0; j < standArray[0].cookieSoldArray.length; j++){
     var hourTotal = 0;
@@ -74,7 +104,6 @@ var sumColumns = function(){
     };
     totalHourArray.push(hourTotal);
   };
-  var standsTable = document.getElementById('standsTable');
   var trEl = document.createElement('tr');
   standsTable.appendChild(trEl);
   for (var i in totalHourArray){
