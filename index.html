@@ -28,19 +28,29 @@
     <input name="name" type="text" required/>
 
     <label for="minCustomers">Minimum Customers: </label>
-    <input name="minCustomers" type="number"/>
+    <input name="minCustomers" type="number" step="any" min="0" required/>
 
     <label for="maxCustomers">Maximum Customers: </label>
-    <input name="maxCustomers" type="number" required/>
+    <input name="maxCustomers" type="number" step="any" min="0" required/>
 
     <label for="aveCookies">Average Cookies per Person: </label>
-    <input name="aveCookies" type="number" required/>
+    <input name="aveCookies" type="number" step="any" min="0" required/>
 
     <button type="submit">Open new Business!</button>
 </fieldset>
 </form>
 
-      <img id="salmonImg" src="salmon.png" alt="salmon cookie">
+<img class = "carouselImg" id="salmonImg" src="salmon.png" alt="salmon cookie">
+<img class="carouselImg" src="chinook.jpg" alt="chinook">
+<img class="carouselImg" src="cutter.jpeg" alt="Salmon Cookie Cutter">
+<img class="carouselImg" src="family.jpg" alt="Family enjoying cookies">
+<img class="carouselImg" src="fish.jpg" alt="Examples of fish">
+<img class="carouselImg" src="frosted-cookie.jpg" alt="Frosted salmon cookies">
+<img class="carouselImg" src="shirt.jpg" alt="Salmon shirt available for sale">
+
+
+
+
 <div id="tableScroll">
 <table id="standsTable"></table>
 </div>
