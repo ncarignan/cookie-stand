@@ -3,12 +3,12 @@
 //global Variables
 CookieStand.all = [];
 CookieStand.totalHourArray = [];
-CookieStand.storeForm = document.getElementById('CookieStand.storeForm');
-CookieStand.standsTable = document.getElementById('CookieStand.standsTable');
+CookieStand.storeForm = document.getElementById('storeForm');
+CookieStand.standsTable = document.getElementById('standsTable');
 CookieStand.allLocationsRef = [];
-//all are props of CoookieStand now
+//all are props of CoookieS
+//TODO add no maximum lower than minimum if(min > max) {return alert('min must be less than max')}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.name = name;
   CookieStand.allLocationsRef.push(this.name);
@@ -17,7 +17,7 @@ function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.aveCookies = aveCookies;
   this.openTime = 6;
   this.closeTime = 21;
-  this.hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm',];
+  this.hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
   this.cookieSoldArray = [];
   this.cookieSoldTable = [];
   this.sumCookieSold = 0;
@@ -25,6 +25,7 @@ function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.randRate();
   this.createHourlyRateTable();
 }
+
 
 CookieStand.prototype.randRate = function(){
   for(var i = 0; i < (this.closeTime - this.openTime); i++){
@@ -54,7 +55,7 @@ CookieStand.prototype.createHourlyRateTable = function(){
 };
 
 var makeHeaderRow = function(){
-  var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+  var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
   var trEl = document.createElement('tr');
   for(var i = 0; i < hoursLocal.length; i++){
     var thEl = document.createElement('th');
@@ -84,12 +85,14 @@ function renderTable(){
   sumColumns();
 }
 
+// // helper functions
+// CookieStand.newElement = function(type, content, parent){
+//   var newEl = document.createElement(type);
+// };
 
 function handleLocationSubmit(event) {
   event.preventDefault();
-
   // form validation
-
   var name = event.target.name.value;
   var minCustomers = parseInt(event.target.minCustomers.value);
   var maxCustomers = parseInt(event.target.maxCustomers.value);
@@ -113,7 +116,7 @@ function handleLocationSubmit(event) {
   event.target.maxCustomers.value = null;
   event.target.aveCookies.value = null;
   renderTable();
-}
+};
 
 CookieStand.storeForm.addEventListener('submit', handleLocationSubmit);
 
@@ -141,3 +144,18 @@ var sumColumns = function(){
   };
 };
 sumColumns();
+
+//img carousel
+var slideIndex = 0;
+carousel();
+function carousel() {
+  var i;
+  var fishImgs = document.getElementsByClassName('carouselImg');
+  for(i = 0; i < fishImgs.length; i++){
+    fishImgs[i].style.display = 'none';
+  }
+  slideIndex++;
+  if (slideIndex > fishImgs.length) {slideIndex = 1;}
+  fishImgs[slideIndex - 1].style.display = 'block';
+  setTimeout(carousel,2000);
+}
