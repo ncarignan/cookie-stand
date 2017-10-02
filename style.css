@@ -19,6 +19,23 @@ nav{
   margin-bottom: 10px;
   max-width: 1040px;
 }
+article{
+  background-color: #2a2b26;
+  border: solid black 8px;
+  color: #cac9c7;
+  font-family: 'Roboto-Mono', monospace;
+  margin-bottom: 10px;
+  max-width: 1040px;
+  margin-top:10px;
+}
+h2{
+  min-height: 55px;
+  font-size: 150%;
+  text-align: center;
+  margin:10px auto auto auto;
+  font-family: 'Rooboto-Mono', monospace;
+  vertical-align: middle;
+}
 h3{
   min-height: 55px;
   font-size: 100%;
@@ -27,8 +44,11 @@ h3{
   font-family: 'Rooboto-Mono', monospace;
   vertical-align: middle;
 }
+h4{
+  font-size: 130%;
+}
 p{
-  font-size: 65%;
+  font-size: 125%;
   text-align: left;
   font-family: serif;
 }
@@ -37,9 +57,13 @@ ul{
   margin: 8px 5px 12px 0;
 }
 
-li {
+nav li {
   font-size: 65%;
   font-family: sans-serif;
+}
+article li{
+  font-size:120%;
+  line-height: 150%;
 }
 img{
   background-color: #2a2b26;
