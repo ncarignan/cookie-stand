@@ -6,14 +6,14 @@ CookieStand.totalHourArray = [];
 CookieStand.storeForm = document.getElementById('storeForm');
 CookieStand.standsTable = document.getElementById('standsTable');
 CookieStand.allLocationsRef = [];
-//all are props of CoookieS
+//all are propertiess of CoookieStand function
 //TODO add no maximum lower than minimum if(min > max) {return alert('min must be less than max')}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function CookieStand(name, minCustomers, maxCustomers, aveCookies){
+function CookieStand(name, minCustomers, maxCustomers){
   this.name = name;
   CookieStand.allLocationsRef.push(this.name);
-  this.minCustomers = minCustomers;
-  this.maxCustomers = maxCustomers;
+  this.min = min;
+  this.max = max;
   this.aveCookies = aveCookies;
   this.openTime = 6;
   this.closeTime = 21;
@@ -22,20 +22,20 @@ function CookieStand(name, minCustomers, maxCustomers, aveCookies){
   this.cookieSoldTable = [];
   this.sumCookieSold = 0;
   CookieStand.all.push(this);
-  this.randRate();
+  this.randomrate();
   this.createHourlyRateTable();
 }
 
 
-CookieStand.prototype.randRate = function(){
+CookieStand.prototype.randomRate = function(){
   for(var i = 0; i < (this.closeTime - this.openTime); i++){
-    this.cookieSoldArray.push(Math.floor(this.aveCookies * (Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers)));
+    this.cookiesSoldArray.push(Math.floor(this.aveCookies * (Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers)));
   };
   this.cookieSoldTotal = 0;
-  for(i in this.cookieSoldArray){
-    this.cookieSoldTotal += this.cookieSoldArray[i];
+  for(i in this.cookiesSoldArray){
+    this.cookieSoldTotal += this.cookiesSoldArray[i];
   }
-  this.cookieSoldArray.push(this.cookieSoldTotal);
+  this.cookiesSoldArray.push(this.cookieSoldTotal);
 };
 
 CookieStand.prototype.createHourlyRateTable = function(){
@@ -56,9 +56,9 @@ CookieStand.prototype.createHourlyRateTable = function(){
 
 var makeHeaderRow = function(){
   var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
-  var trEl = document.createElement('tr');
+  var trEl = createElement('tr');
   for(var i = 0; i < hoursLocal.length; i++){
-    var thEl = document.createElement('th');
+    var thEl = createElement('th');
     thEl.textContent = hoursLocal[i];
     trEl.appendChild(thEl);
   };
@@ -103,7 +103,7 @@ function handleLocationSubmit(event) {
     CookieStand.all[CookieStand.allLocationsRef.indexOf(name)].maxCustomers = maxCustomers;
     CookieStand.all[CookieStand.allLocationsRef.indexOf(name)].aveCookies = aveCookies;
     CookieStand.all[CookieStand.allLocationsRef.indexOf(name)].cookieSoldArray = [];
-    CookieStand.all[CookieStand.allLocationsRef.indexOf(name)].randRate();
+    CookieStand.all[CookieStand.allLocationsRef.indexOf(name)].randomRate();
     renderTable();
     return;
   }
