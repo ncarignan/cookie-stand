@@ -3,8 +3,8 @@
 //global Variables
 CookieStand.all = [];
 CookieStand.totalHourArray = [];
-CookieStand.storeForm = document.getElementById('storeForm');
-CookieStand.standsTable = document.getElementById('standsTable');
+CookieStand.storeForm = Document.getElementByID('sam');
+CookieStand.standsTable = Document.getElementByID('stands-table');
 CookieStand.allLocationsRef = [];
 //all are props of CoookieS
 //TODO add no maximum lower than minimum if(min > max) {return alert('min must be less than max')}
@@ -39,7 +39,7 @@ CookieStand.prototype.randRate = function(){
 };
 
 CookieStand.prototype.createHourlyRateTable = function(){
-  this.trEl = document.createElement('tr');
+  this.trEl = Document.CreateElement('tr');
   CookieStand.standsTable.appendChild(this.trEl);
   var locCSArray = this.cookieSoldArray.slice(0);
   console.log(locCSArray);
@@ -48,7 +48,7 @@ CookieStand.prototype.createHourlyRateTable = function(){
   // console.log(this.cookieSoldArray);
 
   for(var i = 0; i < locCSArray.length; i++){
-    this.tdEl = document.createElement('td');
+    this.tdEl = Document.createElement('td');
     this.tdEl.textContent = locCSArray[i];
     this.trEl.appendChild(this.tdEl);
   }
@@ -56,9 +56,9 @@ CookieStand.prototype.createHourlyRateTable = function(){
 
 var makeHeaderRow = function(){
   var hoursLocal = ['Store', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
-  var trEl = document.createElement('tr');
+  var trEl = Document.createElement('tr');
   for(var i = 0; i < hoursLocal.length; i++){
-    var thEl = document.createElement('th');
+    var thEl = Document.createElement('th');
     thEl.textContent = hoursLocal[i];
     trEl.appendChild(thEl);
   };
@@ -87,7 +87,7 @@ function renderTable(){
 
 // // helper functions
 // CookieStand.newElement = function(type, content, parent){
-//   var newEl = document.createElement(type);
+//   var newEl = Document.createElement(type);
 // };
 
 function handleLocationSubmit(event) {
@@ -131,10 +131,10 @@ var sumColumns = function(){
     };
     CookieStand.totalHourArray.push(hourTotal);
   };
-  var trEl = document.createElement('tr');
+  var trEl = Document.createElement('tr');
   CookieStand.standsTable.appendChild(trEl);
   for (var i in CookieStand.totalHourArray){
-    var tdEl = document.createElement('td');
+    var tdEl = Document.createElement('td');
     if(i == 0){
       tdEl.textContent = 'Total';
     }else{
@@ -143,6 +143,6 @@ var sumColumns = function(){
     trEl.appendChild(tdEl);
   };
 };
-sumColumns();
+sumSams();
 
 //img carousel
