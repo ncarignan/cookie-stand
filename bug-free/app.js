@@ -42,10 +42,8 @@ CookieStand.prototype.createHourlyRateTable = function(){
   this.trEl = document.createElement('tr');
   CookieStand.standsTable.appendChild(this.trEl);
   var locCSArray = this.cookieSoldArray.slice(0);
-  console.log(locCSArray);
   // this.cookieSoldArray.unshift(this.name);
   locCSArray.unshift(this.name);
-  // console.log(this.cookieSoldArray);
 
   for(var i = 0; i < locCSArray.length; i++){
     this.tdEl = document.createElement('td');
@@ -109,7 +107,6 @@ function handleLocationSubmit(event) {
   }
 
   var newCookieStand = new CookieStand(name,minCustomers,maxCustomers, aveCookies);
-  console.log(newCookieStand);
 
   event.target.name.value = null;
   event.target.minCustomers.value = null;
